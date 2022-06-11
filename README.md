@@ -33,32 +33,32 @@ $ cd Spatiotemporal-CNN-Transformer
 $ pip install -r requirements.txt
 ```
 
-#### Build Dataset
+#### Build Model
+
+1. Modify model configuration. The default configuration parameters are in `./configuration.py`. You can modify the parameters in the Trainer. Here are the examples: [nnUNetTrainerV2_ObjCPAllInter](https://github.com/YaoZhang93/TumorCP/blob/main/nnunet/training/network_training/nnUNetTrainerV2_ObjCPAllInter.py).
+
+
+#### Load Data
 
 1. Download EyePACS dataset. Then use `tools/crop.py` to remove the black border of images and resize them to 512 x 512.
-2. Rename all images as 'id_eyeSide.jpeg', where 'id' here is the id of images given by EyePACS and 'eyeSide' is left or right. Then move all images into a folder.
+2. Load all images as 'id_eyeSide.jpeg', where 'id' here is the id of images given by EyePACS and 'eyeSide' is left or right. Then move all images into a folder.
 3. Download the provided [lesion predictions](https://github.com/YijinHuang/Lesion-based-Contrastive-Learning/releases/tag/v1.0), which is a pickle file containing a dict as follows:
 
 ```python
-predictions = {
+partition = {
     'train': {
-        'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
-        'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
-        'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
+        'id_eyeSide.jpeg': ,
+        'id_eyeSide.jpeg': ,
+        'id_eyeSide.jpeg': ,
         ...
     },
-    'val': {
+    'test': {
         'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
         'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
         ...
     }
 }
 ```
-
-
-* Configuration
-
-  The default configuration of `TumorCP` is in `./configuration.py`. You can modify the parameters in the Trainer. Here are the examples: [nnUNetTrainerV2_ObjCPAllInter](https://github.com/YaoZhang93/TumorCP/blob/main/nnunet/training/network_training/nnUNetTrainerV2_ObjCPAllInter.py).
   
 
 ## Citation
