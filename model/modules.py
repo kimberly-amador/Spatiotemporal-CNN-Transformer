@@ -44,10 +44,10 @@ class ENCODER:
 
 class TRANSFORMER:
     @staticmethod
-    def build(inputTensor, timesteps, dense_dim=96, num_heads=8, num_layers=1):
+    def build(inputTensor, timesteps, dense_dim=96, n_heads=8, n_layers=1):
         x = PositionalEmbedding(timesteps, inputTensor.shape[2], name='frame_position_embedding')(inputTensor)
-        for _ in range(num_layers):
-            x = TransformerEncoder(inputTensor.shape[2], dense_dim, num_heads)(x)
+        for _ in range(n_layers):
+            x = TransformerEncoder(inputTensor.shape[2], dense_dim, n_heads)(x)
         x = GlobalMaxPooling1D()(x)
         output = Dropout(0.5)(x)
         return output
