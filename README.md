@@ -14,3 +14,63 @@ Predicting the follow-up infarct lesion from baseline spatio-temporal (4D) Compu
 <p align="center">
 <img src="https://github.com/kimberly-amador/MICCAI2022-Hybrid-Spatiotemporal-Transformer/tree/main/images/architecture.png" width="550">
 </p>
+
+
+## Usage
+
+#### Installation
+
+Recommended environment:
+
+- python 3.8+
+- tensorflow 2.0
+
+To install the dependencies, run:
+
+```shell
+$ git clone https://github.com/kimberly-amador/Spatiotemporal-CNN-Transformer
+$ cd Lesion-based-Contrastive-Learning
+$ pip install -r requirements.txt
+```
+
+#### Build Dataset
+
+1. Download EyePACS dataset. Then use `tools/crop.py` to remove the black border of images and resize them to 512 x 512.
+2. Rename all images as 'id_eyeSide.jpeg', where 'id' here is the id of images given by EyePACS and 'eyeSide' is left or right. Then move all images into a folder.
+3. Download the provided [lesion predictions](https://github.com/YijinHuang/Lesion-based-Contrastive-Learning/releases/tag/v1.0), which is a pickle file containing a dict as follows:
+
+```python
+predictions = {
+    'train': {
+        'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
+        'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
+        'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
+        ...
+    },
+    'val': {
+        'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
+        'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
+        ...
+    }
+}
+```
+
+
+* Configuration
+
+  The default configuration of `TumorCP` is in `./configuration.py`. You can modify the parameters in the Trainer. Here are the examples: [nnUNetTrainerV2_ObjCPAllInter](https://github.com/YaoZhang93/TumorCP/blob/main/nnunet/training/network_training/nnUNetTrainerV2_ObjCPAllInter.py).
+  
+
+## Citation
+If you find this code and paper useful for your research, please cite the paper:
+
+```
+```
+
+## Acknowledgement
+Part of the code is adapted from open-source codebase and original implementations of algorithms, 
+we thank these authors for their fantastic and efficient codebase:
+* CycleGAN: https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
+* PnP-AdaNet: https://github.com/carrenD/Medical-Cross-Modality-Domain-Adaptation
+* SIFA: https://github.com/cchen-cc/SIFA
+* SSL4MIS: https://github.com/HiLab-git/SSL4MIS
