@@ -22,13 +22,13 @@ Predicting the follow-up infarct lesion from baseline spatio-temporal (4D) Compu
 
 Recommended environment:
 
-- python 3.8.10
+- python 3.8.1
 - tensorflow-gpu 2.4.1
 
 To install the dependencies, run:
 
 ```shell
-$ git clone https://github.com/kimberly-amador/Spatiotemporal-CNN-Transformer
+$ git clone https://github.com/kimberly-amador/Spatiotemporal-CNN-Transformer.git
 $ cd Spatiotemporal-CNN-Transformer
 $ pip install -r requirements.txt
 ```
