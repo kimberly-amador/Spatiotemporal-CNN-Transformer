@@ -71,6 +71,3 @@ If you find this code and paper useful for your research, please cite the paper:
 Part of the code is adapted from open-source codebase and original implementations of algorithms, 
 we thank these authors for their fantastic and efficient codebase:
 * CycleGAN: https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
-* PnP-AdaNet: https://github.com/carrenD/Medical-Cross-Modality-Domain-Adaptation
-* SIFA: https://github.com/cchen-cc/SIFA
-* SSL4MIS: https://github.com/HiLab-git/SSL4MIS
