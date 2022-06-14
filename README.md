@@ -22,20 +22,38 @@ Predicting the follow-up infarct lesion from baseline spatio-temporal (4D) Compu
 
 Recommended environment:
 
-- python 3.8.1
-- tensorflow-gpu 2.4.1
+- Python 3.8.1
+- TensorFlow GPU 2.4.1
+- CUDA 11.0.2 
+- cuDNN 8.0.4.30
 
 To install the dependencies, run:
 
 ```shell
-$ git clone https://github.com/kimberly-amador/Spatiotemporal-CNN-Transformer.git
+$ git clone https://github.com/kimberly-amador/Spatiotemporal-CNN-Transformer
 $ cd Spatiotemporal-CNN-Transformer
 $ pip install -r requirements.txt
 ```
 
-#### Build Model
+#### Data Preparation
+1. Preprocess the dataset according to...
+2. Create a patient dictionary
 
-1. Modify model configuration. The default configuration parameters are in `./configuration.py`. You can modify the parameters in the Trainer. Here are the examples: [nnUNetTrainerV2_ObjCPAllInter](https://github.com/YaoZhang93/TumorCP/blob/main/nnunet/training/network_training/nnUNetTrainerV2_ObjCPAllInter.py).
+#### Train Model
+
+1. Modify the model configuration. The default configuration parameters are in `./model/config_file.py`.
+2. 
+
+```
+python train_deep.py -m ResNet_UTNet -u EXP_NAME --data_path YOUR_OWN_PATH --block_list ''  --gpu 0
+
+
+* Training and Testing ID are in `data/splits_final.pkl`.
+
+### 2. Training 
+cd CoTr_package/CoTr/run
+
+* Run `nohup python run_training.py -gpu='0' -outpath='CoTr' 2>&1 &` for training
 
 
 #### Load Data
