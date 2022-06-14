@@ -101,7 +101,7 @@ H = CNN_TCN_model.fit(x=train_generator,
                       callbacks=callbacks)
 
 # Save model
-CNN_TCN_model.save_weights('weights/model_weights')
+CNN_TCN_model.save_weights('model_weights')
 print("[INFO] model saved to disk.")
 
 # Save training history

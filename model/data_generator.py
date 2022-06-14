@@ -54,8 +54,8 @@ class DataGenerator2D(Sequence):
         # Generate data according to patient IDs
         for k, ID in enumerate(list_IDs_temp):
             patient = ID.split('_', maxsplit=1)
-            img = np.load(self.imagePath + '{0}/preprocessed.npz'.format(patient[1]))['img']
-            lbl = np.load(self.imagePath + '{0}/preprocessed.npz'.format(patient[1]))['label']
+            img = np.load(self.imagePath + '{0}_preprocessed.npz'.format(patient[1]))['img']
+            lbl = np.load(self.imagePath + '{0}_preprocessed.npz'.format(patient[1]))['label']
 
             # Extract the desired slice from volume and save data to array
             X[k, ] = img[int(patient[0]), ]
