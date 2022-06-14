@@ -2,7 +2,8 @@ import pickle
 import metrics
 import tensorflow.keras.backend as K
 import config_file as cfg
-from modules import ENCODER, DECODER, TRANSFORMER, DataGenerator2D
+from modules import ENCODER, DECODER, TRANSFORMER
+from data_generator import DataGenerator2D
 from lr_scheduler import StepDecay
 from tensorflow.keras import optimizers, Model
 from tensorflow.keras.callbacks import LearningRateScheduler
