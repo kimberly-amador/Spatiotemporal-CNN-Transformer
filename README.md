@@ -36,9 +36,9 @@ $ pip install -r requirements.txt
 ```
 
 #### Data Preparation
-1. Preprocess the dataset. The model takes images of size 384 x 256.
-2. Save the preprocessed images as numpy arrays. Use the name convention 'patientID_preprocessed.npz'. Then move all images into a folder. 
-3. Create a patient dictionary. This should be a pickle file containing a dict as follows:
+1. Preprocess the data. The default model takes images of size 384 x 256.
+2. Save the preprocessed images and its corresponding labels as numpy arrays into a single file in 'patientID_preprocessed.npz' format. 
+3. Create a patient dictionary. This should be a pickle file containing a dict as follows, where s is the slice number:
 
 ```python
 partition = {
@@ -63,7 +63,7 @@ partition = {
 #### Train Model
 
 1. Modify the model configuration. The default configuration parameters are in `./model/config_file.py`.
-2. Run `python main.py` to start training the model.
+2. Run `python main.py` to train the model.
 
 ## Citation
 If you find this code and paper useful for your research, please cite the paper:
@@ -72,6 +72,6 @@ If you find this code and paper useful for your research, please cite the paper:
 ```
 
 ## Acknowledgement
-Part of the code is adapted from open-source codebase and original implementations of algorithms, 
-we thank these authors for their fantastic and efficient codebase:
-* CycleGAN: https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
+Part of the code is adapted from open-source codebase:
+* Transformer: https://github.com/keras-team/keras-io/blob/master/examples/vision/video_transformers.py
+* Dice Loss: https://github.com/voxelmorph/voxelmorph/blob/legacy/ext/neuron/neuron/metrics.py
