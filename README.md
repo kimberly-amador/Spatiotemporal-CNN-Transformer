@@ -36,48 +36,34 @@ $ pip install -r requirements.txt
 ```
 
 #### Data Preparation
-1. Preprocess the dataset according to...
-2. Create a patient dictionary
-
-#### Train Model
-
-1. Modify the model configuration. The default configuration parameters are in `./model/config_file.py`.
-2. 
-
-```
-python train_deep.py -m ResNet_UTNet -u EXP_NAME --data_path YOUR_OWN_PATH --block_list ''  --gpu 0
-
-
-* Training and Testing ID are in `data/splits_final.pkl`.
-
-### 2. Training 
-cd CoTr_package/CoTr/run
-
-* Run `nohup python run_training.py -gpu='0' -outpath='CoTr' 2>&1 &` for training
-
-
-#### Load Data
-
-1. Download EyePACS dataset. Then use `tools/crop.py` to remove the black border of images and resize them to 512 x 512.
-2. Load all images as 'id_eyeSide.jpeg', where 'id' here is the id of images given by EyePACS and 'eyeSide' is left or right. Then move all images into a folder.
-3. Download the provided [lesion predictions](https://github.com/YijinHuang/Lesion-based-Contrastive-Learning/releases/tag/v1.0), which is a pickle file containing a dict as follows:
+1. Preprocess the dataset. The model takes images of size 384 x 256.
+2. Save the preprocessed images as numpy arrays. Use the name convention 'patientID_preprocessed.npz'. Then move all images into a folder. 
+3. Create a patient dictionary. This should be a pickle file containing a dict as follows:
 
 ```python
 partition = {
     'train': {
-        'id_eyeSide.jpeg': ,
-        'id_eyeSide.jpeg': ,
-        'id_eyeSide.jpeg': ,
+        's_patientID',
+        's_patientID',
         ...
     },
+    'val': {
+        's_patientID',
+        's_patientID',
+        ...
+    }
     'test': {
-        'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
-        'id_eyeSide.jpeg': [(x1, y1, x2, y2), ..., (x1, y1, x2, y2)],
+        's_patientID',
+        's_patientID',
         ...
     }
 }
 ```
-  
+
+#### Train Model
+
+1. Modify the model configuration. The default configuration parameters are in `./model/config_file.py`.
+2. Run `python main.py` to start training the model.
 
 ## Citation
 If you find this code and paper useful for your research, please cite the paper:
